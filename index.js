@@ -20,13 +20,14 @@ const main = async () => {
     core.error('owner:' + owner);
 
     const octokit = new github.getOctokit(token);
-    repo.replace(owner+'\/', '');
+    const split = repo.split('/');
 
-    core.error('new repo: ' + repo);
+    core.error('split1: ' + split[0]);
+    core.error('split2: ' + split[1]);
 
     octokit.rest.issues.addLabels({
-        owner,
-        repo,
+        split[0],
+        split[1],
         issue_number,
         labels
     });
