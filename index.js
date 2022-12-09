@@ -9,7 +9,7 @@ const main = async () => {
     const owner = core.getInput('owner', { required: true });
     const issue = core.getInput('issue', { required: true });
 
-    const labels = [];
+    const labels = ['default'];
     if (status == 'success') {
         labels.push('success');
     } else if (status == 'failure') {
