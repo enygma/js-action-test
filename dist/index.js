@@ -9692,28 +9692,21 @@ const main = async () => {
     const status = core.getInput('status', { required: true });
     const token = core.getInput('token', { required: true });
     const issue_number = core.getInput('issue_number', { required: true });
-    
-    var repo = core.getInput('repo', { required: true });
-    var owner = core.getInput('owner', { required: true });
 
-    const labels = ['default'];
-    if (status == 'success') {
+    var repo = core.getInput('repo', { required: true });
+
+    const labels = [];
+    if (status == 'Approved') {
         labels.push('success');
-    } else if (status == 'failure') {
+    } else if (status == 'Not Approved') {
         labels.push('failure');
     }
-
-    core.error('repo:' + repo);
-    core.error('owner:' + owner);
 
     const octokit = new github.getOctokit(token);
     const split = repo.split('/');
 
     owner = split[0];
     repo = split[1];
-
-    core.error('split1: ' + owner);
-    core.error('split2: ' + repo);
 
     octokit.rest.issues.addLabels({
         owner,

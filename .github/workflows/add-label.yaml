@@ -13,5 +13,4 @@ jobs:
           status: ${{ github.event.client_payload.data.status }}
           token: ${{ secrets.GITHUB_TOKEN }}
           repo: ${{ github.event.client_payload.repository.name }}
-          owner: ${{ github.event.client_payload.repository.owner.login }}
           issue: ${{ github.event.client_payload.issue.number }}

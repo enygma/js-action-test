@@ -10,9 +10,6 @@ inputs:
   repo:
     description: 'The repository to add the label to'
     required: true
-  owner:
-    description: 'The owner of the repository'
-    required: true
   issue_number:
     description: 'The issue number'
     required: true
