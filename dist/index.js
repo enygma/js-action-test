@@ -9693,9 +9693,9 @@ const main = async () => {
     const token = core.getInput('token', { required: true });
     const repo = core.getInput('repo', { required: true });
     const owner = core.getInput('owner', { required: true });
-    const issue = core.getInput('issue', { required: true });
+    const issue_number = core.getInput('issue_number', { required: true });
 
-    const labels = [];
+    const labels = ['default'];
     if (status == 'success') {
         labels.push('success');
     } else if (status == 'failure') {
@@ -9703,11 +9703,12 @@ const main = async () => {
     }
 
     const octokit = new github.getOctokit(token);
+    const repo_name = repo.replace(owner, '');
 
     octokit.rest.issues.addLabels({
         owner,
-        repo,
-        issue,
+        repo_name,
+        issue_number,
         labels
     });
 
