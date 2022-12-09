@@ -21,7 +21,7 @@ const main = async () => {
 
     octokit.rest.issues.addLabels({
         owner,
-        repo_name,
+        repo,
         issue_number,
         labels
     });
