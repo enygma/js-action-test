@@ -20,7 +20,7 @@ const main = async () => {
     core.error('owner:' + owner);
 
     const octokit = new github.getOctokit(token);
-    repo.replace(owner+'/', '');
+    repo.replace(owner+'\/', '');
 
     core.error('new repo: ' + repo);
 
