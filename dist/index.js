@@ -9703,11 +9703,11 @@ const main = async () => {
     }
 
     const octokit = new github.getOctokit(token);
-    const repo_name = repo.replace(owner+'/', '');
+    repo.replace(owner+'/', '');
 
     octokit.rest.issues.addLabels({
         owner,
-        repo_name,
+        repo,
         issue_number,
         labels
     });
