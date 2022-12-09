@@ -13,7 +13,7 @@ inputs:
   owner:
     description: 'The owner of the repository'
     required: true
-  issue:
+  issue_number:
     description: 'The issue number'
     required: true
 runs:

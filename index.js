@@ -7,7 +7,7 @@ const main = async () => {
     const token = core.getInput('token', { required: true });
     const repo = core.getInput('repo', { required: true });
     const owner = core.getInput('owner', { required: true });
-    const issue = core.getInput('issue', { required: true });
+    const issue_number = core.getInput('issue_number', { required: true });
 
     const labels = ['default'];
     if (status == 'success') {
@@ -22,7 +22,7 @@ const main = async () => {
     octokit.rest.issues.addLabels({
         owner,
         repo_name,
-        issue,
+        issue_number,
         labels
     });
 
