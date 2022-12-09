@@ -9702,8 +9702,11 @@ const main = async () => {
         labels.push('failure');
     }
 
+    core.error('repo:' + repo);
+    core.error('owner:' + owner);
+
     const octokit = new github.getOctokit(token);
-    repo.replace(owner+'%2F', '');
+    repo.replace(owner+'/', '');
 
     octokit.rest.issues.addLabels({
         owner,
