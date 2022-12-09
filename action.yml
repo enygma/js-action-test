@@ -13,6 +13,9 @@ inputs:
   issue_number:
     description: 'The issue number'
     required: true
+  team:
+    description: 'The team that issued the approval'
+    required: true
 runs:
   using: 'node16'
   main: 'dist/index.js'

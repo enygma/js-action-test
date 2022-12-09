@@ -9692,14 +9692,15 @@ const main = async () => {
     const status = core.getInput('status', { required: true });
     const token = core.getInput('token', { required: true });
     const issue_number = core.getInput('issue_number', { required: true });
+    const team = core.getInput('team', { required: true });
 
     var repo = core.getInput('repo', { required: true });
 
     const labels = [];
     if (status == 'Approved') {
-        labels.push('success');
+        labels.push('Reviewed - '+team);
     } else if (status == 'Not Approved') {
-        labels.push('failure');
+        labels.push('HOLD - '+team);
     }
 
     const octokit = new github.getOctokit(token);
