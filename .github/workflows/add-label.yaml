@@ -3,14 +3,15 @@ on:
   repository_dispatch:
     types: [tag_approved]
 jobs:
-  runs-on: ubuntu-latest
-  name: Add the label(s) to the issue after the approval command is run
-  steps:
-    - name: Tag Issue
-      uses: https://github.com/enygma/js-action-test@main
-      with:
-        status: ${{ github.event.client_payload.data.status }}
-        token: ${{ secrets.GITHUB_TOKEN }}
-        repo: ${{ github.event.client_payload.repository.name }}
-        owner: ${{ github.event.client_payload.repository.owner.login }}
-        issue: ${{ github.event.client_payload.issue.number }}
+  add-label:
+    runs-on: ubuntu-latest
+    name: Add the label(s) to the issue after the approval command is run
+    steps:
+      - name: Tag Issue
+        uses: https://github.com/enygma/js-action-test@main
+        with:
+          status: ${{ github.event.client_payload.data.status }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repo: ${{ github.event.client_payload.repository.name }}
+          owner: ${{ github.event.client_payload.repository.owner.login }}
+          issue: ${{ github.event.client_payload.issue.number }}
