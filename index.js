@@ -22,6 +22,8 @@ const main = async () => {
     const octokit = new github.getOctokit(token);
     repo.replace(owner+'/', '');
 
+    core.error('new repo: ' + repo);
+
     octokit.rest.issues.addLabels({
         owner,
         repo,
