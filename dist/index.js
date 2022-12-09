@@ -9703,7 +9703,7 @@ const main = async () => {
     }
 
     const octokit = new github.getOctokit(token);
-    const repo_name = repo.replace(owner, '');
+    // const repo_name = repo.replace(owner, '');
 
     octokit.rest.issues.addLabels({
         owner,
