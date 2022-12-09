@@ -22,12 +22,15 @@ const main = async () => {
     const octokit = new github.getOctokit(token);
     const split = repo.split('/');
 
-    core.error('split1: ' + split[0]);
-    core.error('split2: ' + split[1]);
+    owner = split[0];
+    repo = split[1];
+
+    core.error('split1: ' + owner);
+    core.error('split2: ' + repo);
 
     octokit.rest.issues.addLabels({
-        split[0],
-        split[1],
+        owner,
+        repo,
         issue_number,
         labels
     });

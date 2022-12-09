@@ -9706,9 +9706,13 @@ const main = async () => {
     core.error('owner:' + owner);
 
     const octokit = new github.getOctokit(token);
-    repo.replace(owner+'\/', '');
+    const split = repo.split('/');
 
-    core.error('new repo: ' + repo);
+    owner = split[0];
+    repo = split[1];
+
+    core.error('split1: ' + owner);
+    core.error('split2: ' + repo);
 
     octokit.rest.issues.addLabels({
         owner,
