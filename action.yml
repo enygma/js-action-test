@@ -1,0 +1,21 @@
+name: 'Complex Add Label Action'
+description: 'Add a label to an issue based on custom logic'
+inputs:
+  status:
+    description: 'The status of the issue'
+    required: true
+  token:
+    description: 'The GitHub token'
+    required: true
+  repo:
+    description: 'The repository to add the label to'
+    required: true
+  owner:
+    description: 'The owner of the repository'
+    required: true
+  issue:
+    description: 'The issue number'
+    required: true
+runs:
+  using: 'node16'
+  main: 'index.js'
